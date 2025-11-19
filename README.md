@@ -37,19 +37,74 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+![WhatsApp Image 2025-11-19 at 10 49 07 AM](https://github.com/user-attachments/assets/0e6ff602-ca1d-4533-b514-1651547bc012)
+![WhatsApp Image 2025-11-19 at 10 49 19 AM](https://github.com/user-attachments/assets/7ba13fee-1a8c-4e1b-abbc-d614ae85170e)
+
+
 
 **Procedure**
 
-Write the detailed procedure here
+
+Full Adder:
+
+1.Open Quartus II and create a new project.
+
+2.Use schematic design entry to draw the full adder circuit.
+
+3.The circuit consists of XOR, AND, and OR gates.
+
+4.Compile the design, verify its functionality through simulation.
+
+5.Implement the design on the target device and program it.
+
+Full Subtractor:
+
+1.Follow the same steps as for the full adder.
+
+2.Draw the full subtractor circuit using schematic design.
+
+3.The circuit includes XOR, AND, OR gates to perform subtraction.
+
+4.Compile, simulate, implement, and program the design similarly to the full adder.
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by:LINGESH D RegisterNumber:25017546
 */
+**Full Adder**
+```
+module expm4(a,b,c,sum,carry);
+ input a,b,c;
+ output sum,carry;
+ xor(sum,a,b,c);
+ assign carry=a&b | b&c | a&c;
+ endmodule 
 
+```
 **RTL Schematic**
+<img width="1920" height="1080" alt="Screenshot (27)" src="https://github.com/user-attachments/assets/1cc23855-5960-49ac-b625-f0b2fac04a24" />
+
 
 **Output Timing Waveform**
+<img width="1920" height="1080" alt="Screenshot (28)" src="https://github.com/user-attachments/assets/49c7e446-6d50-4ce0-bdd8-00a395758c7c" />
+
+
+**Full Subractor**
+```
+module exp4(diff,borrow,a,b,c);
+input a,b,c;
+output diff,borrow;
+xor(diff,a,b,c);
+assign borrow= (~a)&c | (~a)&b | (b&c);
+endmodule
+```
+**RTL Schematic**
+<img width="1920" height="1080" alt="Screenshot (29)" src="https://github.com/user-attachments/assets/38148b0a-ccc0-48b6-ace6-32dffbe5214d" />
+
+
+**Output Timing Waveform**
+<img width="1920" height="1080" alt="Screenshot (30)" src="https://github.com/user-attachments/assets/22e30def-cf60-44e7-9cff-a06d646438ab" />
+
 
 **Result:**
 
